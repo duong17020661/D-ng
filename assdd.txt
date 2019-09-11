@@ -1,0 +1,20 @@
+DELIMITER $$
+CREATE TRIGGER before_employee_update 
+BEFORE UPDATE ON employees
+FOR EACH ROW 
+
+BEGIN
+	DECLARE a VARCHAR(50);
+    DECLARE b VARCHAR(15);
+    SET b = OLD.productCode;
+	IF NEW.quantityOrdered > (SELECT quantityInStock FROM products p 
+INNER JOIN orderdetails od ON od.productCode = p.productCode
+WHERE od.productCode = b
+GROUP BY p.productCode) THEN
+    SET a = 'thi?u cung ?ng';
+    END IF;
+    INSERT INTO note 
+	SET OrderNumber = OLD.orderNumber, ProductCode = OLD.productCode, Note = a;
+    
+END$$
+DELIMITER ;

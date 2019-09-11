@@ -1,0 +1,9 @@
+SELECT quantityInStock FROM products p 
+INNER JOIN orderdetails od ON od.productCode = p.productCode
+INNER JOIN orders o ON o.orderNumber = od.orderNumber 
+WHERE o.orderNumber = 10100 
+GROUP BY p.productCode
+
+SELECT quantityOrdered FROM orderdetails od 
+INNER JOIN orders o ON o.orderNumber = od.orderNumber  
+WHERE o.status = 'Cancelled' AND o.orderNumber = a
