@@ -1,0 +1,21 @@
+1. Đưa thông tin phim phát hành năm 2006.
+2. Đưa ra thông tin diễn viên có 
+	tên là "scarlett" (FIRSTNAME).
+3. Đưa ra thông tin phim có tên 
+	bắt đầu bằng chữ cái "A".
+4. Đưa ra thông tin tên phim, 
+	năm phát hành,thể loại phim 
+		và ngôn ngữ của phim.
+5. Đưa ra trung bình độ dài phim 
+	trong CSDL sakila.
+6. Tính số lượng phim được thuê 
+	trong năm 2006.
+7. Đưa ra thông tin các phim được 
+	thuê trong tháng 2 năm 2006.
+8. Tính số phim đã được thuê 
+	tại mỗi cửa hàng.
+9. Đưa ra tên khách hàng và 
+	số tiền khách hàng đã thuê phim.
+10. Tính số tiền thu được 
+	của mỗi cửa hàng.
+

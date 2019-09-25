@@ -1,0 +1,31 @@
+1.
+SHOW FULL TABLES IN sakila WHERE TABLE_TYPE LIKE 'VIEW'
+2.
+SHOW CREATE VIEW customer_list
+3.
+SELECT * FROM `customer_list` WHERE `SID` = 1
+4.
+UPDATE `customer_list` SET `address` = 'Bim Son', `phone` = '0383355770' WHERE ID = 1
+UPDATE `customer_list` SET `city` = 'TH' WHERE ID = 1
+5.
+CREATE VIEW film_details as
+SELECT title, description, release_year, l.name as name_language FROM `film` f 
+INNER JOIN language l ON l.language_id=f.`language_id`
+6.
+CREATE VIEW category_info as
+SELECT c.name ,c.`category_id`, COUNT(*) FROM `film_category` fc
+INNER JOIN category c ON c.category_id=fc.`category_id`
+GROUP BY c.`category_id`
+7.
+CREATE VIEW rental_count AS
+SELECT CONCAT(`first_name`," " ,`last_name`), count(*) FROM `customer` c
+INNER JOIN rental r ON r.customer_id = c.`customer_id`
+GROUP BY c.`customer_id`
+8.
+CREATE VIEW count_film as
+SELECT `title`, COUNT(*) as count FROM `film` f
+INNER JOIN inventory i ON i.film_id = f.`film_id`
+INNER JOIN rental r ON r.inventory_id = i.inventory_id
+GROUP BY `title`
+ORDER BY count DESC
+LIMIT 10
